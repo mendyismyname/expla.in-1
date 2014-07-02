@@ -1,0 +1,23 @@
+<%= content_tag main, html do %>
+
+  <% if user %>
+    <%= content_tag user, class: 'user' do %>
+      <%= link_to question.user.name, question.user %>
+    <% end %>
+  <% end %>
+
+  <%= content_tag content, class: 'content' do %>
+    <%= link_to question.content, question %>
+  <% end %>
+
+  <%= content_tag count, class: 'answer-count' do %>
+    <%= question.total_answers %>
+  <% end %>
+
+  <% unless current_user.subscribed? question %>
+    <%= content_tag subscription, class: 'subscribe' do %>
+      <%= render 'subscriptions/new', question: question %>
+    <% end %>
+  <% end %>
+
+<% end %>

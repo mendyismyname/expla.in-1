@@ -1,0 +1,26 @@
+<div>
+  <ul>
+    <li>
+      <!-- new question -->
+      <div id='post_question'>
+        <%= render 'questions/form', question: current_user.questions.new %>
+      </div>
+    </li>
+    <li>
+      <%= link_to "Hot", questions_path %>
+    </li>
+    <li>
+      <!-- link to user profile -->
+      <%= link_to current_user.name, current_user %>
+    </li>
+    <li>
+      <!-- notifications -->
+      Notifications
+      <%= render_notification_list(current_user.notifications, html: { id: 'notification-list' }) %>
+    </li>
+    <li>
+      <!-- log out -->
+      <%= link_to "Log out", signout_path, method: 'delete' %>
+    </li>
+  </ul>
+</div>

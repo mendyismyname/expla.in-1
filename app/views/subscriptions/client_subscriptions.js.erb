@@ -1,0 +1,22 @@
+(function(){
+  var subscriptions;
+  
+  subscriptions = $.getJSON('/users/<%= current_user.id %>/subscriptions', function( response ){
+    var id,
+        question;
+
+
+    window.Subscriptions = {};
+
+    for(id in response){
+      question = response[id];
+
+      window.Subscriptions[question] = window.explainedClient.subscribe('/notifications/<%= current_user.id %>' + '/' + id , function( notification ){
+        $( document ).trigger('notification', [notification]);
+      });
+    }
+  });
+  
+}).call(this);
+
+    

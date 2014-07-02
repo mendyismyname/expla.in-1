@@ -1,0 +1,15 @@
+<%= content_tag main, html do %>
+
+  <%= content_tag sender do %>
+    <%= notification.sender %>
+  <% end %>
+
+  <%= content_tag notifiable do %>
+    <%= notification.notifiable %>
+  <% end %>
+
+  <%= content_tag message do %>
+    <%= notification.message %>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,11 @@
+<nav>
+
+  <% if user_signed_in? %>
+    
+    <%= render 'shared/authorized_header' %>
+
+  <% else %>
+    <%= render 'shared/unauthorized_header' %>
+  <% end %>
+
+</nav>

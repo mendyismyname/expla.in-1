@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <%= javascript_include_tag '/explained/client' %>
+  <%= javascript_include_tag client_js_path %>
+  <%= javascript_include_tag subscription_js_path %>
+<% end %>

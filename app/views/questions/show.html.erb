@@ -1,0 +1,9 @@
+<%= render_question(@question, :main => :div ) %>
+
+<%= content_tag :ul, data: { owner: "question_#{@question.id}" } do %>
+  <% @question.answers.each do |answer| %>
+    <%= render_answer(answer, q: false) %>
+  <% end %>
+<% end %>
+
+<%= render 'answers/form', question: @question %>

@@ -1,0 +1,35 @@
+<aside class='sidebar'>
+  <!-- user info  -->
+  <div class='user-info'>
+    <figure>
+      <div class='img'>
+        <!-- user image -->
+      </div>
+
+      <h2>
+        <%= @user.name %>
+      </h2>
+
+      <figcaption>
+        <%= @user.bio %>
+      </figcaption>
+    </figure>
+  </div>
+</aside>
+
+<section id="questions">
+  
+  <%= render_question_list @user.questions.answered, title: "Answered", html: { class: 'answered' } %>
+
+  <%= render_question_list @user.questions.unanswered, title: "Unanswered", html: { class: 'unanswered' } %>
+</section>
+
+<section id="answers">
+  <h1>Answers</h1>
+  <ul>
+    <% @user.answers.each do |answer| %>
+      <%= render_answer(answer, user: false) %>
+    <% end %>
+  </ul>
+</section>
+

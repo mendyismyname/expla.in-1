@@ -1,0 +1,9 @@
+
+<%= content_tag main, html do %>
+  <h1><%= title %></h1>
+  <%= content_tag list, class: 'list' do %>
+    <% questions.each do |q| %>
+      <%= render_question(q, :main => question) %>
+    <% end %>
+  <% end %>
+<% end %>

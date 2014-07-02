@@ -1,0 +1,18 @@
+<%= content_tag main, html do %>
+
+  <% if q %>
+    <%= content_tag q do %>
+      <%= answer.question.content %>
+    <% end %>
+  <% end %>
+
+  <%= content_tag a do %>
+    <%= answer.content %>
+  <% end %>
+
+  <% if user %>
+    <%= content_tag user do %>
+      <%= link_to answer.user.name, answer.user %>
+    <% end %>
+  <% end %>
+<% end %>
