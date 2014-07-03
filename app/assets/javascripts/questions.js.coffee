@@ -1,9 +1,33 @@
+_escapeRegexp = ( str )->
+  escape = 
+    [ '?','.','*','&','|','(',')',
+    '[', ']', '\\', '^', '$', '+' ]
+
+  str.split('').map( ( char )->
+    if( _.include( escape, char ) )
+      "\\#{char}"
+    else
+      char
+  ).join('')
 
 
 $( document )
   .on( 'page:change', ( )->
     $queries = $( '#question-queries' )
+    $searchBar = $( '#new_question #question_content' )
+    autofillbar = new autoFillBar( '#new_question #question_content' )
     questionMemo = { }
+
+    _searchQuestionHashes = ( hashes, pattern )->
+      _.uniq ( _.select( hashes, ( hash )->
+        pattern.test( hash.content )
+      ))
+
+    _searchMemo = ( query )->
+      regExp = new RegExp( ".*#{ _escapeRegexp( query ) }.*", 'i' )
+      
+      _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
+
 
     updateQueryList = ( query )->
       _listItem = _.template( '<li><%= item %></li>' )
@@ -18,20 +42,36 @@ $( document )
 
     $( '#new_question #question_content' )
       .on( 'keyup', ( e )->
-        e.stopPropagation( )
+
+        e.stopPropagation()
         $queries.html( '' )
+        autofillbar.fill('')
+
         query = $( this ).val( )
 
-        aSimilarFailure = _.any( _.keys( questionMemo ), ( q )->
-          regExp = new RegExp "^#{ q }"
+        return unless query
 
-          regExp.test( query ) && questionMemo[ q ].count < 1
+        aSimilarFailure = _.any( _.keys( questionMemo ), ( pastQuery )->
+          regExp = new RegExp "^#{ _escapeRegexp( pastQuery ) }", 'i'
+          regExp.test( query ) and questionMemo[ pastQuery ].count < 1
         )
+        
+        if( not aSimilarFailure )
 
-        if query and not aSimilarFailure
-          if questionMemo[ query ]
+          if( questionMemo[ query ] )
+
             updateQueryList( query )
+
+          else if( _.any( memoResults = _searchMemo( query ) ) )
+
+            questionMemo[ query ] = 
+              count: memoResults.length
+              questions: memoResults
+
+            updateQueryList( query )
+
           else
+
             $.getJSON( '/questions', { query: query }, ( response )->
 
               results = 
@@ -41,6 +81,11 @@ $( document )
               questionMemo[ query ] = results
               updateQueryList( query )
             )
+        
+          if( $queries.html() != '' )
+            regExp = new RegExp( "^#{ query }", 'i' )
+            if( regExp.test(firstQuestion = _.first( questionMemo[ query ].questions ).content)  )
+              autofillbar.fill( firstQuestion )
       )
   )
 

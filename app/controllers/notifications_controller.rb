@@ -8,6 +8,7 @@ class NotificationsController < FayeRails::Controller
       partial: NotificationsController.render_notification(new_notification, main: :li),
       notification: new_notification.attributes
     }
+    
     NotificationsController.publish(channel, data)
 
   end

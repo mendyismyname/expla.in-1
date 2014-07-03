@@ -1,8 +1,8 @@
-<%= form_for(question) do |f| %>
-  <div class='fields'>
+<%= form_for(question, html) do |f| %>
+  <%= content_tag :div, class: 'input-group' do %>
     <%= f.text_field :content, autocomplete: :off %>
-  </div>
-  <%= f.submit 'Ask' %>
+    <%= f.submit 'Ask' %>
+  <% end %>
 <% end %>
 
 <ul id='question-queries'>

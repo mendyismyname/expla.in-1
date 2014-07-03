@@ -16,7 +16,7 @@ class Answer < ActiveRecord::Base
             sender: sender, 
             reciever: reciever, 
             message: message,
-            notifiable: self
+            notifiable: self.question
             )
         end
       end
