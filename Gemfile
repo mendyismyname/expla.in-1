@@ -41,4 +41,3 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faye-rails'
 gem 'thin'
 gem 'underscore-rails'
-gem "twitter-bootstrap-rails"

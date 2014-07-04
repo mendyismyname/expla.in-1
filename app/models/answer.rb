@@ -13,7 +13,7 @@ class Answer < ActiveRecord::Base
       self.question.subscriptions.each do |subscription|
         unless (reciever = subscription.user) == sender
           Notification.create(
-            sender: sender, 
+            wsender: sender, 
             reciever: reciever, 
             message: message,
             notifiable: self.question

@@ -1,19 +1,22 @@
 <!-- new question -->
-<%= render 'questions/form', question: current_user.questions.new, html: { class: "navbar-search" } %>
+<%= render 'questions/form', question: current_user.questions.new, html: { } %>
+<%= content_tag :ul do %>
+    
+  <%= content_tag :li do %>
+    <%= link_to "Hot", questions_path %>
+  <% end %>
+  <%= content_tag :li do %>
+    <!-- link to user profile -->
+    <%= link_to current_user.name, current_user %>
+  <% end %>
+  <%= content_tag :li do %>
+    <!-- notifications -->
+    Notifications
+    <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
+  <% end %>
+  <%= content_tag :li do  %>
+    <!-- log out -->
+    <%= link_to "Log out", signout_path, method: 'delete' %>
+  <% end %>
 
-<%= menu_item "Hot", questions_path %>
-
-
-    <li>
-      <!-- link to user profile -->
-      <%= link_to current_user.name, current_user %>
-    </li>
-    <li>
-      <!-- notifications -->
-      Notifications
-      <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
-    </li>
-    <li>
-      <!-- log out -->
-      <%= link_to "Log out", signout_path, method: 'delete' %>
-    </li>
+<% end %>
