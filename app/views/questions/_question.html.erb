@@ -1,13 +1,7 @@
 <%= content_tag main, html do %>
-
-  <% if user %>
-    <%= content_tag user, class: 'user' do %>
-      <%= link_to question.user.name, question.user %>
-    <% end %>
-  <% end %>
-
+<div class='question-wrapper'>
   <%= content_tag content, class: 'content' do %>
-    <%= link_to question.content, question %>
+    <h2><%= link_to question.content, question %><h2>
   <% end %>
 
   <%= content_tag count, class: 'answer-count' do %>
@@ -19,5 +13,5 @@
       <%= render 'subscriptions/new', question: question %>
     <% end %>
   <% end %>
-
+</div>
 <% end %>

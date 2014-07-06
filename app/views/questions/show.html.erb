@@ -1,9 +1,13 @@
-<%= render_question(@question, :main => :div ) %>
+<div class="show">
+  <div class="author"> question by: <%= link_to @question.user.name.capitalize, @question.user%> </div>
+  <%= render_question(@question, :main => :div ) %>
 
-<%= content_tag :ul, data: { owner: "question_#{@question.id}" } do %>
-  <% @question.answers.each do |answer| %>
-    <%= render_answer(answer, q: false) %>
-  <% end %>
-<% end %>
-
+  <div class="answer">
+    <%= content_tag :div, data: { owner: "question_#{@question.id}" } do %>
+      <% @question.answers.each do |answer| %>
+        <%= render_answer(answer, q: false) %>
+      <% end %>
+    <% end %>
 <%= render 'answers/form', question: @question %>
+  </div>
+</div>

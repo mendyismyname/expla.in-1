@@ -1,0 +1,25 @@
+nav{
+  height:50px;
+  background-color: #262626;
+  position: fixed;
+  top:0;
+  right:0;
+  left:0;
+  padding:10px;
+ }
+
+ nav li {
+  background-color: white;
+  display: inline-block;
+  float: right;
+  padding:5px;
+  margin: 2px;
+ }
+
+ nav li:hover{
+  background-color: #efefef;
+ }
+
+ nav a{
+  text-decoration: none;
+ }

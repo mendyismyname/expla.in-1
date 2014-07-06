@@ -1,13 +1,12 @@
-<!-- new question -->
-<%= render 'questions/form', question: current_user.questions.new, html: { } %>
+
 <%= content_tag :ul do %>
     
   <%= content_tag :li do %>
-    <%= link_to "Hot", questions_path %>
+    <%= link_to "Hot", questions_path, class:"nav link" %>
   <% end %>
   <%= content_tag :li do %>
     <!-- link to user profile -->
-    <%= link_to current_user.name, current_user %>
+    <%= link_to current_user.name, current_user, class:"nav profile" %>
   <% end %>
   <%= content_tag :li do %>
     <!-- notifications -->

@@ -4,10 +4,11 @@
     <figure>
       <div class='img'>
         <!-- user image -->
+        <div id="letter"><%= @user.name[0] %></div>
       </div>
 
       <h2>
-        <%= @user.name %>
+        <%= @user.name.upcase %>
       </h2>
 
       <figcaption>
@@ -17,19 +18,18 @@
   </div>
 </aside>
 
-<section id="questions">
-  
-  <%= render_question_list @user.questions.answered, title: "Answered", html: { class: 'answered' } %>
-
-  <%= render_question_list @user.questions.unanswered, title: "Unanswered", html: { class: 'unanswered' } %>
+<section id="user-questions">
+  <h2>My Questions</h2>
+  <%= render_question_list @user.questions.answered, title: "Answered" %>
+  <%= render_question_list @user.questions.unanswered, title: "Unanswered"  %>
 </section>
 
 <section id="answers">
   <h1>Answers</h1>
-  <ul>
+  <div>
     <% @user.answers.each do |answer| %>
       <%= render_answer(answer, user: false) %>
     <% end %>
-  </ul>
+  </div>
 </section>
 

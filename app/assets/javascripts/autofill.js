@@ -9,15 +9,11 @@
 
     $mainInput = $( inputSelector ).css({
         zIndex: 1,
-        background: 'rgba(255,255,255,0.5)'
       });
 
     $backgroundInput = $( '<input>',{
       'class': 'auto-fill-background',
       css: {
-        position: 'absolute',
-        top: $mainInput.position().top,
-        left: $mainInput.position().left,
         zIndex: -1
         //fill
       }

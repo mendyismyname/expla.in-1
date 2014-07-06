@@ -27,11 +27,15 @@ $( document )
       regExp = new RegExp( ".*#{ _escapeRegexp( query ) }.*", 'i' )
       
       _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
-
+    debugger
 
     updateQueryList = ( query )->
       _listItem = _.template( '<li><%= item %></li>' )
       if( questionMemo[ query ].count > 0 )
+
+        $queries
+          .slideDown( "fast" )
+
         $queries
           .append( _listItem( item: questionMemo[ query ].count ) )
 
@@ -75,7 +79,7 @@ $( document )
             $.getJSON( '/questions', { query: query }, ( response )->
 
               results = 
-                count: response.length
+
                 questions: response
 
               questionMemo[ query ] = results
