@@ -1,21 +1,17 @@
 
-<%= content_tag :ul do %>
-    
-  <%= content_tag :li do %>
-    <%= link_to "Hot", questions_path, class:"nav link" %>
-  <% end %>
-  <%= content_tag :li do %>
-    <!-- link to user profile -->
-    <%= link_to current_user.name, current_user, class:"nav profile" %>
-  <% end %>
-  <%= content_tag :li do %>
-    <!-- notifications -->
-    Notifications
-    <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
-  <% end %>
-  <%= content_tag :li do  %>
-    <!-- log out -->
-    <%= link_to "Log out", signout_path, method: 'delete' %>
-  <% end %>
 
-<% end %>
+
+<ul id="nav">
+  <li class="active"><%= link_to "Hot", questions_path %></li>
+  <li><a href="#">New</a></li>
+  <li><a href="#">Answered</a></li>
+</ul>    
+    <!-- log out -->
+<ul id="controls">
+  <li><a class="icon" href="#">n</a></li>
+  <li><%= link_to "a", signout_path, method: 'delete', class: 'icon' %></li>
+</ul>
+<!-- link_to current_user.name, current_user, class:"nav profile" -->
+
+        <!-- notifications -->
+<!-- render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) -->

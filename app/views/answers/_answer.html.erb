@@ -1,5 +1,4 @@
-<%= content_tag main, html do %>
-
+  <h2>Answer <span><span>by</span> <%= link_to answer.user.name.capitalize, answer.user %></span></h2>
   <% if q %>
     <%= content_tag q do %>
       <%= answer.question.content %>
@@ -9,10 +8,3 @@
   <%= content_tag a do %>
     <%= answer.content %>
   <% end %>
-
-  <% if user %>
-    <%= content_tag user do %>
-      <%= link_to answer.user.name, answer.user %>
-    <% end %>
-  <% end %>
-<% end %>

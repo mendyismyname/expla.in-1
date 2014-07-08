@@ -2,11 +2,6 @@ module QuestionsHelper
 
   def render_question question, locals={}
     default_tags = {
-      :main => :li,
-      :content => :p,
-      :count => :span,
-      :user => :h2,
-      :subscription => :div,
       :html => {
         class: 'question', 
         data: { 

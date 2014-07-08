@@ -1,17 +1,15 @@
-<%= content_tag main, html do %>
-<div class='question-wrapper'>
-  <%= content_tag content, class: 'content' do %>
-    <h2><%= link_to question.content, question %><h2>
-  <% end %>
+<%= content_tag :div, html do %>
+  <h1><%= link_to question.content, question %></h1>
+  <div class="reviews">
+  <span class='subscriptions'>
 
-  <%= content_tag count, class: 'answer-count' do %>
-    <%= question.total_answers %>
-  <% end %>
+    <%= render 'subscriptions/new', question: question %>
+    
+  </span>
+  <span class="icon"><%= image_tag("question.png") %></span> <%= question.total_answers %>
+  </div>
 
-  <% unless current_user.subscribed? question %>
-    <%= content_tag subscription, class: 'subscribe' do %>
-      <%= render 'subscriptions/new', question: question %>
-    <% end %>
-  <% end %>
-</div>
+  <ul class="answers">
+    <li class="noAnswers">No answers yet</li>
+  </ul>
 <% end %>

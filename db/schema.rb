@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140701223907) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: true do |t|
     t.text     "content"
     t.integer  "user_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140701223907) do
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "notifications", force: true do |t|
     t.integer  "reciever_id"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140701223907) do
     t.integer  "total_answers", default: 0
   end
 
-  add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 20140701223907) do
     t.datetime "updated_at"
   end
 
-  add_index "subscriptions", ["question_id"], name: "index_subscriptions_on_question_id"
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+  add_index "subscriptions", ["question_id"], name: "index_subscriptions_on_question_id", using: :btree
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
