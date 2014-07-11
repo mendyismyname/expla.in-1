@@ -32,6 +32,9 @@ body{
    padding:0;
    margin:0 auto;
  }
+ #signup{
+  margin: 50px 0;
+ }
 
 #signup input[type=submit]{
   background-color:#1d7f91;
@@ -50,14 +53,77 @@ body{
   transition:.5s;
 }
 
-
- input[type=submit]:focus{
+#signup input[type=submit]:focus{
   background-color:#1d9cbe;
   color: white;
   border: none;
   outline: none;
 }
 
- input[type=submit]:hover{
+#signup input[type=submit]:hover{
   background-color:#1d9cbe;
 }
+
+#signup textarea{
+  color:grey;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: #f2f2f2;
+  padding: 13px 13px 13px 13px;
+  margin-bottom: 10px;
+  width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+#signup textarea:focus{
+  background-color: #fbfbfb;
+  box-shadow: 0;
+  color: grey;
+  outline: none;
+  resize:vertical;
+  width: 100%;
+  padding: 13px 13px 13px 13px;
+}
+
+#signup input{
+  color:grey;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: #f2f2f2;
+  padding: 13px 13px 13px 13px;
+  margin-bottom: 10px;
+  width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+#signup input:focus{
+  background-color: #fbfbfb;
+  box-shadow: 0;
+  color: grey;
+  outline: none;
+  resize:vertical;
+  width: 100%;
+}
+
+#signup h2{
+  color: #00a2bd;
+  font-size: 33px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+
+}
+
+

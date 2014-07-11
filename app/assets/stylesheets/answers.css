@@ -2,17 +2,17 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom:35px;
 }
-.show .answer{
+.single .answer{
   background-color: #efefef;
   padding:30px;
 }
 
-.show{
+.single{
   margin: 0 0 75px 0;
 
 }
 
-#answer input[type=submit]{
+.single input[type=submit]{
   background-color:#1d7f91;
   padding:10px;
   height:50px;
@@ -29,18 +29,18 @@
   transition:.5s;
 }
 
-#answer input[type=submit]:focus{
+.single input[type=submit]:focus{
   background-color:#1d9cbe;
   color: white;
   border: none;
   outline: none;
 }
 
-#answer input[type=submit]:hover{
+.single input[type=submit]:hover{
   background-color:#1d9cbe;
 }
 
-textarea{
+.single textarea{
   color:grey;
   font-weight:500;
   font-size: 18px;
@@ -57,7 +57,7 @@ textarea{
   border: 3px solid rgba(0,0,0,0);
 }
 
-textarea:focus{
+.single textarea:focus{
   background-color: #fbfbfb;
   box-shadow: 0;
   color: grey;
@@ -67,8 +67,35 @@ textarea:focus{
   padding: 13px 13px 13px 13px;
 }
 
+.single input[type=text]{
+  color:grey;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: #f2f2f2;
+  padding: 13px 13px 13px 13px;
+  margin-bottom: 10px;
+  width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.single input:focus{
+  background-color: #fbfbfb;
+  box-shadow: 0;
+  color: grey;
+  outline: none;
+  resize:vertical;
+  width: 100%;
+  padding: 13px 13px 13px 13px;
+}
 a{
   text-decoration: none;
+  color:grey;
 }
 a:visited{
   color:grey;
