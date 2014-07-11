@@ -3,10 +3,10 @@ module NotificationsHelper
 
   def render_notification notification, locals={}
     defaults = {
-      :main => :div,
-      :sender => :h4,
-      :message => :p,
-      :notifiable => :h6,
+      :main => :li,
+      :sender => :span,
+      :message => :span,
+      :notifiable => :span,
       :html => {
         :class => 'notification',
         :data => {
@@ -15,15 +15,8 @@ module NotificationsHelper
         }
       }
     }
-    if respond_to? :render
-      render(notification, defaults.deep_merge(locals))
-    else
-      defaults[:notification] = notification
-       ActionView::Base.new(Rails.configuration.paths["app/views"]).render(
-          :partial => 'notifications/notification', :format => :txt,
-          locals: defaults.deep_merge(locals)
-        )
-    end
+    
+    render(partial: notification, locals: defaults.deep_merge(locals), layout: false)
   end
 
   def render_notification_list notifications, locals={}

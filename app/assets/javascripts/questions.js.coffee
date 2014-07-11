@@ -25,9 +25,7 @@ $( document )
 
     _searchMemo = ( query )->
       regExp = new RegExp( ".*#{ _escapeRegexp( query ) }.*", 'i' )
-      
       _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
-    debugger
 
     updateQueryList = ( query )->
       _listItem = _.template( '<li><%= item %></li>' )
@@ -79,7 +77,6 @@ $( document )
             $.getJSON( '/questions', { query: query }, ( response )->
 
               results = 
-
                 questions: response
 
               questionMemo[ query ] = results

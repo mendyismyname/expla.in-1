@@ -2,9 +2,6 @@
   var questionSelector = "*[data-resource='question'][data-id='<%= @subscription.question.id %>']",
       $question = $( questionSelector );
 
-
   $question.find('.subscriptions').html('<%= j(render "subscriptions/new", question: @subscription.question) %>')
-
-  console.log(questionSelector, $question, $question.find('.subscription-count'));
 
 }).call(this);

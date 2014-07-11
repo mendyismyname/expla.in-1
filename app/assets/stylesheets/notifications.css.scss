@@ -1,0 +1,50 @@
+#notification-list {
+  position: absolute;
+  background: rgba( 25, 25, 25, 0.8 );
+  line-height: 1em;
+  display: none;
+  // padding: 0.5%;
+
+  .notification {
+    line-height: 1.5em;
+    border-bottom: #ccc dashed 1px;
+    padding: 0;
+    display: block;
+    margin: 0;
+    a {
+      font-size: 2em;
+      color: black;
+    }
+
+
+    .sender {
+      padding: 0 3%;
+      font-size: 0.5em;
+      a {
+        color: white;
+      }
+    }
+
+    .message {
+      font-size: 0.8em;
+      background: rgba( 255, 255, 255, 0.8 );
+      margin: 0% 0%;
+      display:block;
+      padding: 3%;
+    }
+    
+    .notifiable {
+      padding: 1% 5%;
+      font-size: 0.5em;
+      display: block;
+      text-align: right;
+      background: rgba( 255, 255, 255, 1 );
+
+    }
+
+  }
+}
+
+.alert {
+  color: red !important;
+}
