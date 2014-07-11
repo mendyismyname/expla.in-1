@@ -1,23 +1,23 @@
 <%= form_for(user) do |f| %>
 
   <div class='fields'>
-    <%= f.text_field :name, placeholder: "name..." %>
+    <%= f.text_field :name, placeholder: "name" %>
   </div>
 
   <div class='fields'>
-    <%= f.email_field :email, placeholder: "e-mail..." %>
+    <%= f.email_field :email, placeholder: "email" %>
   </div><br>
 
   <div class='fields'>
-    <%= f.password_field :password, placeholder: "password..." %>
+    <%= f.password_field :password, placeholder: "password" %>
   </div>
 
   <div class='fields'>
-    <%= f.password_field :password_confirmation, placeholder: "password confirmation..." %>
+    <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
   </div><br>
 
   <div class='fields'>
-    <%= f.text_area :bio, placeholder: 'bio(optinal)...' %>
+    <%= f.text_area :bio, placeholder: 'bio (optinal)' %>
   </div>
 
   <%= f.submit 'Sign up' %>

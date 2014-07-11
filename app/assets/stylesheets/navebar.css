@@ -1,12 +1,11 @@
 header {
   font-family: 'Roboto', sans-serif;
   height: 100px;
-  position: fixed;
   top: 0;
   line-height: 100px;
   background: #222222;
-  width: 100%;
 }
+
 header ul li {
   display: inline-block;
   margin-right: 30px;
@@ -33,3 +32,26 @@ header #nav {
 header #controls {
   float: right;
 }
+
+.nav-wrapper{
+   position: relative;
+   max-width:850px;
+   min-width:600px;
+   padding:0 100px;
+   margin:0 auto;
+ }
+
+ header input{
+  border:none;
+  height:30px;
+  padding:0 15px;
+ }
+
+header input[type=submit]{
+  background-color: #292929;
+  border:none;
+  box-shadow:none;
+  font-weight: bold;
+  color: white;
+}
+
