@@ -40,11 +40,12 @@ $( document )
             .append( question.thumb )
         )
         $queries
-          .slideDown()
+          .stop( true, true )
+          .slideDown( 'fast' )
       else
         $queries
-          .stop()
-          .fadeOut()
+          .stop( true, true )
+          .fadeOut( 'fast' )
 
     updateAutoFill = ( query )->
       if( $queries.html() != '' )
@@ -59,13 +60,13 @@ $( document )
         query = $( this ).val( )
 
         unless query
-          $queries.slideUp(()->
+          $queries.slideUp( 'fast' ,()->
             $queries.html( '' )
           )
           return
 
         aSimilarFailure = _.any( _.keys( questionMemo ), ( pastQuery )->
-          regExp = new RegExp "^#{ _escapeRegexp( pastQuery ) }", 'i'
+          regExp = new RegExp( "^#{ _escapeRegexp( pastQuery ) }", 'i' )
           regExp.test( query ) and questionMemo[ pastQuery ].count < 1
         )
         
@@ -85,6 +86,12 @@ $( document )
             updateQueryList( query )
             updateAutoFill( query )
 
+          else if( questionMemo[ query[ 0 ] ]  )
+
+            $queries
+              .stop( true, true)
+              .slideUp( 'fast' )
+              
           else
 
             $.getJSON( '/questions', { query: query }, ( response )->
@@ -98,17 +105,21 @@ $( document )
               updateAutoFill( query )
             )
       )
-    $searchBar.on( 'focusout', ( e )->
-      $queries
-        .stop()
-        .slideUp()
-    )
-    $searchBar.on( 'focus', ( e )->
-      unless( $queries.html() is '' )
+
+    $( document ).on( 'click focusin focusout', 'body, #question-queries, #new_question #question_content', ( e )->
+      e.stopPropagation()
+      $this = $( this )
+      
+      if( $queries.html() isnt '' and e.type is 'focusin' and $this.is( '#new_question #question_content' ))
         $queries
-          .stop()
-          .slideDown() 
+          .stop( true, true )
+          .slideDown( 'fast' )
+      else if ( e.type is 'click' and $this.is( 'body' ) )
+        $queries
+          .stop( true, true)
+          .slideUp( 'fast' )
     )
+
   )
 
       

@@ -37,6 +37,7 @@ footer div.input-group div.auto-fill-container input[type="text"]{
   background-color: rgba(0,0,0,0.1);
   left: 0;
   top: 0;
+  color: yellow;
 }
 
 footer div.input-group div.auto-fill-container input[type=text]:focus{
