@@ -20,11 +20,10 @@
 </aside>
 
 <section class="single">
-  <div id="header">
-  <h2>My Questions</h2>
+  <p class="nextQ"> &nbsp;<p>
 
+  <h2>My Questions</h2>
   <%= render_question_list @user.questions.answered, title: "Answered" %>
-</div>
   <%= render_question_list @user.questions.unanswered, title: "Unanswered"  %>
 </section>
 

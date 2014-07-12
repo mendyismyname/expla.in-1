@@ -6,6 +6,7 @@
       <%= content_tag notifiable, class: 'notifiable' do %>
         <%= link_to notification.notifiable.content, question_path( notification.notifiable, notification_id: notification.id ) %>
       <% end %>
+      <div class="line"></div>
       <%= content_tag message, class: 'message' do %>
         <%= link_to notification.message, question_path( notification.notifiable, notification_id: notification.id ) %>
       <% end %>

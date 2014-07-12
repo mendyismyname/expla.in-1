@@ -34,9 +34,6 @@ $( document )
         $queries
           .slideDown( "fast" )
 
-        $queries
-          .append( _listItem( item: questionMemo[ query ].count ) )
-
         _.each( questionMemo[ query ].questions, ( question )->
           $queries
             .append( _listItem( item: question.content ) )
