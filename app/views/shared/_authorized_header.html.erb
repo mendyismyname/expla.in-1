@@ -6,17 +6,17 @@
   <%= content_tag :li, link_to("New", "#") %>
   <%= content_tag :li, link_to("Answered", "#") %>
 
-  <%= content_tag :li do %>
-    <%= link_to "Notifications", "#", id: 'notifications-button' %>
-    <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
-  <% end %>
-  <%= content_tag :li, link_to(current_user.name, current_user, class:"nav profile") %>
+
 
 </ul>    
     <!-- log out -->
 <%= content_tag :ul, id: 'controls' do %>
-  <%= content_tag :li, link_to('n', '#', class: 'icon') %>
-  <%= content_tag :li, link_to('a', signout_path, class: 'icon', method: 'delete') %>
+  <%= content_tag :li do %>
+    <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
+  <% end %>
+  <%= content_tag :i, link_to('', '#', class: 'icon-bell-alt', id: 'notifications-button') %>
+  <%= content_tag :i, link_to('', current_user, class:"icon-user") %>
+  <%= content_tag :i, link_to('', signout_path, class: 'icon-logout', method: 'delete') %>
 <% end %>
         <!-- notifications -->
 
