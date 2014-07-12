@@ -33,6 +33,7 @@ $( document )
         $queries.html( '' )
 
         _.each( questionMemo[ query ].questions, ( question )->
+          question.thumb = $( question.thumb );
           $queries
             .append( question.thumb )
         )
