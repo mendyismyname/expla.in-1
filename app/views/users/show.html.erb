@@ -1,55 +1,36 @@
-<aside class='sidebar'>
-  <!-- user info  -->
-
-  <div class='user-info'>
-    <figure>
+<div class ='user-page'> 
+  <section class="single">
+    <p class="nextQ">&nbsp;<p> 
+    <div id="header">
       <div class='img'>
-        <!-- user image -->
-        <div id="letter"><%= @user.name[0] %></div>
+        <div id="letter"><%= @user.name[0] %>
+        </div>
+      </div> 
+      <h1><%= @user.name.upcase %></h1>
+      <p><%= @user.bio %></p>
+    </div>
+    <div id="body">
+      <div id="answer">
+      <% if @user.questions.count > 0 %>  
+        <h3>My Questions</h3>
+        <ul class="questions">
+        <h2>Answered</h2>
+        <%= render_question_list @user.questions.answered, title: "Answered" %>
+        <p class="nextQ">&nbsp;<p> 
+        <h2>Unanswered</h2>
+        <%= render_question_list @user.questions.unanswered, title: "Unanswered"  %>
+         </ul>
       </div>
-
-      <h2>
-        <%= @user.name.upcase %>
-      </h2>
-
-      <figcaption>
-        <%= @user.bio %>
-      </figcaption>
-    </figure>
-  </div>
-</aside>
-
-<section class="single">
-  <p class="nextQ"> &nbsp;<p>
-
-  <h2>My Questions</h2>
-  <%= render_question_list @user.questions.answered, title: "Answered" %>
-  <%= render_question_list @user.questions.unanswered, title: "Unanswered"  %>
-</section>
-
-<section id="answers">
-  <h1>Answers</h1>
-  <div>
-    <% @user.answers.each do |answer| %>
-      <%= render_answer(answer, user: false) %>
-    <% end %>
-  </div>
-</section>
-
-
-
-<!-- <div class="single">
-  <p class="nextQ">Question by: link_to @question.user.name.capitalize, @question.user <p> 
-  <div id="header">
-    render_question(@question) 
-  </div>
-  <div id="body">
-    <div id="answer">
-      @question.answers.each do |answer|
-      render_answer(answer, q: false) 
-    <div class="line"></div>
-      end
-    render 'answers/form', question: @question 
-  </div>
-</div> -->
+      <% end %>
+      <p class="nextQ">&nbsp;<p> 
+      <h3>My Answers</h3>
+      <div id="answer">
+        <% @user.answers.each do |answer| %>
+        <%= render_answer(answer, user: false) %>
+        <div class="line"></div>
+      <% end %>
+      </div>
+    </div>  
+  </section>
+</div>
 

@@ -2,11 +2,9 @@
 
 <div class='nav-wrapper'>
 <ul id="nav">
-  <%= content_tag :li, link_to("Hot", questions_path) %>
-  <%= content_tag :li, link_to("New", "#") %>
-  <%= content_tag :li, link_to("Answered", "#") %>
-
-
+  <%= content_tag :li, link_to("Hot", questions_path), class:active(questions_path) %>
+  <%= content_tag :li, link_to("New", new_questions_path), class:active(new_questions_path) %>
+  <%= content_tag :li, link_to("Answered", answered_questions_path), class:active(answered_questions_path) %>
 
 </ul>    
     <!-- log out -->

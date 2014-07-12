@@ -31,24 +31,32 @@ $( document )
       _listItem = _.template( '<li><%= item %></li>' )
       if( questionMemo[ query ].count > 0 )
 
-        $queries
-          .slideDown( "fast" )
-
+        $queries.html( '' )
+        
         _.each( questionMemo[ query ].questions, ( question )->
           $queries
             .append( _listItem( item: question.content ) )
         )
+        $queries
+          .slideDown()
+      else
+        $queries
+          .fadeOut()
+
+
+    questionMemo = { }
 
     $( '#new_question #question_content' )
       .on( 'keyup', ( e )->
-
-        e.stopPropagation()
-        $queries.html( '' )
         autofillbar.fill('')
 
         query = $( this ).val( )
 
-        return unless query
+        unless query
+          $queries.slideUp(()->
+            $queries.html( '' )
+          )
+          return
 
         aSimilarFailure = _.any( _.keys( questionMemo ), ( pastQuery )->
           regExp = new RegExp "^#{ _escapeRegexp( pastQuery ) }", 'i'
@@ -74,6 +82,7 @@ $( document )
             $.getJSON( '/questions', { query: query }, ( response )->
 
               results = 
+                count: response.length
                 questions: response
 
               questionMemo[ query ] = results

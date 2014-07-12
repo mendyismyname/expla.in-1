@@ -16,6 +16,10 @@ class Question < ActiveRecord::Base
   }
 
   scope :popular, lambda{ |limit = 15|
+    order(:total_subscribers => :desc).limit(limit)
+  }
+
+  scope :answered, lambda{ |limit = 15|
     order(:total_answers => :desc).limit(limit)
   }
 

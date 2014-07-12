@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710032523) do
+ActiveRecord::Schema.define(version: 20140712220715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,8 @@ ActiveRecord::Schema.define(version: 20140710032523) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "total_answers", default: 0
+    t.integer  "total_answers",     default: 0
+    t.integer  "total_subscribers", default: 0
   end
 
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree

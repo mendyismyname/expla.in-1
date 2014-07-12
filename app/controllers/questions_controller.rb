@@ -30,6 +30,17 @@ class QuestionsController < ApplicationController
     end
   end
     
+  def new
+    respond_to do |format|
+      format.html { @questions = Question.all }
+    end
+  end
+
+  def answered
+    respond_to do |format|
+      format.html { @questions = Question.answered }
+    end
+  end
 
   private
 
