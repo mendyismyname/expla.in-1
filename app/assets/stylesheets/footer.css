@@ -117,3 +117,8 @@ ul#question-queries .thumb .content {
 ul#question-queries .thumb .icons {
   float: right;
 }
+
+.highlight-word {
+  color: yellow;
+}
+
