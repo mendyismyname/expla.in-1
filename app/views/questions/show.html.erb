@@ -1,17 +1,17 @@
-    <div class="single">
-      <p class="nextQ"><%= link_to 'Next Question', "/questions/#{@question.id + 1}" %><p> 
-      <div id="header">
-        <%= render_question(@question) %>
-      </div>
-      <div id="body">
-        <div id="answer">
-      <% @question.answers.each do |answer| %>
-        <%= render_answer(answer, q: false) %>
-        <div class="line"></div>
-      <% end %>
-<%= render 'answers/form', question: @question %>
-      </div>
+<div class="single">
+  <p class="nextQ">Question by: <%= link_to @question.user.name.capitalize, @question.user %><p> 
+  <div id="header">
+    <%= render_question(@question) %>
   </div>
+  <div id="body">
+    <div id="answer">
+      <% @question.answers.each do |answer| %>
+      <%= render_answer(answer, q: false) %>
+    <div class="line"></div>
+  <% end %>
+    <%= render 'answers/form', question: @question %>
+  </div>
+</div>
 
-<!-- link_to @question.user.name.capitalize, @question.user -->
+
 <!-- content_tag :div, data: { owner: "question_#{@question.id}" } -->

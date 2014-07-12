@@ -15,6 +15,11 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
+    if notification_id = params[:notification_id]
+      @notification = Notification.find( notification_id )
+      @notification.viewed = true
+      @notification.save
+    end
   end
 
   def create

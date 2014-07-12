@@ -1,15 +1,14 @@
 <%= content_tag main, html do %>
-
-  <%= content_tag sender do %>
-    <%= notification.sender %>
-  <% end %>
-
-  <%= content_tag notifiable do %>
-    <%= notification.notifiable %>
-  <% end %>
-
-  <%= content_tag message do %>
-    <%= notification.message %>
-  <% end %>
+    <%= content_tag sender, class: 'sender' do %>
+      <%= link_to notification.sender.name, user_path( notification.sender ) %>:
+    <% end %>
+    <br>
+    <%= content_tag message, class: 'message' do %>
+      <%= link_to notification.message, question_path( notification.notifiable, notification_id: notification.id ) %>
+    <% end %>
+  
+    <%= content_tag notifiable, class: 'notifiable' do %>
+      <%= link_to notification.notifiable.content, question_path( notification.notifiable, notification_id: notification.id ) %>
+    <% end %>
 
 <% end %>

@@ -1,5 +1,7 @@
 <%= content_tag main, html do %>
   <% notifications.each do |n|%>
-    <%= render_notification(n, main: notification) %>
+    <% unless n.viewed? %>
+      <%= render_notification(n, main: notification) %>
+    <% end %>
   <% end %>
 <% end %>

@@ -2,17 +2,21 @@
 
 <div class='nav-wrapper'>
 <ul id="nav">
-  <li class="active"><%= link_to "Hot", questions_path %></li>
-  <li><a href="#">New</a></li>
-  <li><a href="#">Answered</a></li>
+  <%= content_tag :li, link_to("Hot", questions_path) %>
+  <%= content_tag :li, link_to("New", "#") %>
+  <%= content_tag :li, link_to("Answered", "#") %>
+
+  <%= content_tag :li do %>
+    <%= link_to "Notifications", "#", id: 'notifications-button' %>
+    <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
+  <% end %>
+  <%= content_tag :li, link_to(current_user.name, current_user, class:"nav profile") %>
+
 </ul>    
     <!-- log out -->
-<ul id="controls">
-  <li><a class="icon" href="#">n</a></li>
-  <li><%= link_to "a", signout_path, method: 'delete', class: 'icon' %></li>
-</ul>
-</div>
-<!-- link_to current_user.name, current_user, class:"nav profile" -->
-
+<%= content_tag :ul, id: 'controls' do %>
+  <%= content_tag :li, link_to('n', '#', class: 'icon') %>
+  <%= content_tag :li, link_to('a', signout_path, class: 'icon', method: 'delete') %>
+<% end %>
         <!-- notifications -->
-<!-- render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) -->
+

@@ -2,16 +2,14 @@
   var subscriptions;
   
   subscriptions = $.getJSON( '/users/<%= current_user.id %>/subscriptions', function( response ){
-    var id,
+    var questionId,
         question;
 
 
-    window.Subscriptions = {};
+    for( questionId in response ){
+      question = response[ questionId ];
 
-    for( id in response ){
-      question = response[ id ];
-
-      window.Subscriptions[ question ] = window.explainedClient.subscribe( '/notifications/<%= current_user.id %>' + '/' + id , function( notification ){
+      window.EXPLAIN.subscriptions[ question ] = window.EXPLAIN.client.subscribe( '/notifications/<%= current_user.id %>/' + questionId , function( notification ){
         $( document ).trigger( 'notification', [ notification ] );
       });
     }

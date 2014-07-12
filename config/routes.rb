@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'client' => 'subscriptions#client', as: 'client_js'
   get 'client_subscriptions' => 'subscriptions#client_subscriptions', as: 'subscription_js'
 
+  get 'partials/notification/:notification_id' => 'partials#notification'
+
   resources :users, except: :new do
     resources :subscriptions, :only => [:index]
   end

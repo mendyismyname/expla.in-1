@@ -1,5 +1,6 @@
 <aside class='sidebar'>
   <!-- user info  -->
+
   <div class='user-info'>
     <figure>
       <div class='img'>
@@ -19,8 +20,11 @@
 </aside>
 
 <section class="single">
+  <div id="header">
   <h2>My Questions</h2>
+
   <%= render_question_list @user.questions.answered, title: "Answered" %>
+</div>
   <%= render_question_list @user.questions.unanswered, title: "Unanswered"  %>
 </section>
 
@@ -32,4 +36,21 @@
     <% end %>
   </div>
 </section>
+
+
+
+<!-- <div class="single">
+  <p class="nextQ">Question by: link_to @question.user.name.capitalize, @question.user <p> 
+  <div id="header">
+    render_question(@question) 
+  </div>
+  <div id="body">
+    <div id="answer">
+      @question.answers.each do |answer|
+      render_answer(answer, q: false) 
+    <div class="line"></div>
+      end
+    render 'answers/form', question: @question 
+  </div>
+</div> -->
 
