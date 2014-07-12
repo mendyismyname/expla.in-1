@@ -10,6 +10,14 @@ _escapeRegexp = ( str )->
       char
   ).join('')
 
+_highlightWord = ( pattern, question )->
+  
+  regExp = new RegExp( "#{pattern}", 'i' )
+  $content = question.thumb.find('.content a')
+
+  $content.html( question.content.replace( regExp, '<span class="highlight-word">$&</span>' ) )
+
+
 
 $( document )
   .on( 'page:change', ( )->
@@ -36,6 +44,7 @@ $( document )
           unless( question.thumb instanceof $ )
             question.thumb = $( question.thumb )
 
+          _highlightWord( query, question )
           $queries
             .append( question.thumb )
         )
@@ -90,8 +99,10 @@ $( document )
 
             $queries
               .stop( true, true)
-              .slideUp( 'fast' )
-              
+              .slideUp( 'fast', ()->
+                $queries.html( '' )
+              )
+
           else
 
             $.getJSON( '/questions', { query: query }, ( response )->
