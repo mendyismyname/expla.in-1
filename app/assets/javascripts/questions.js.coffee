@@ -33,7 +33,9 @@ $( document )
         $queries.html( '' )
 
         _.each( questionMemo[ query ].questions, ( question )->
-          question.thumb = $( question.thumb );
+          unless( question.thumb instanceof $ )
+            question.thumb = $( question.thumb )
+
           $queries
             .append( question.thumb )
         )
@@ -41,6 +43,7 @@ $( document )
           .slideDown()
       else
         $queries
+          .stop()
           .fadeOut()
 
     updateAutoFill = ( query )->
@@ -96,11 +99,15 @@ $( document )
             )
       )
     $searchBar.on( 'focusout', ( e )->
-      $queries.slideUp()
+      $queries
+        .stop()
+        .slideUp()
     )
     $searchBar.on( 'focus', ( e )->
       unless( $queries.html() is '' )
-        $queries.slideDown() 
+        $queries
+          .stop()
+          .slideDown() 
     )
   )
 
