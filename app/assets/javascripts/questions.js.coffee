@@ -28,14 +28,13 @@ $( document )
       _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
 
     updateQueryList = ( query )->
-      _listItem = _.template( '<li><%= item %></li>' )
       if( questionMemo[ query ].count > 0 )
 
         $queries.html( '' )
         
         _.each( questionMemo[ query ].questions, ( question )->
           $queries
-            .append( _listItem( item: question.content ) )
+            .append( question.thumb )
         )
         $queries
           .slideDown()
@@ -43,8 +42,11 @@ $( document )
         $queries
           .fadeOut()
 
-
-    questionMemo = { }
+    updateAutoFill = ( query )->
+      if( $queries.html() != '' )
+        regExp = new RegExp( "^#{ _escapeRegexp( query ) }", 'i' )
+        if( regExp.test( firstQuestion = _.first( questionMemo[ query ].questions )?.content )  )
+          autofillbar.fill( query + firstQuestion.slice( query.length, firstQuestion.length ) )
 
     $( '#new_question #question_content' )
       .on( 'keyup', ( e )->
@@ -68,6 +70,7 @@ $( document )
           if( questionMemo[ query ] )
 
             updateQueryList( query )
+            updateAutoFill( query )
 
           else if( _.any( memoResults = _searchMemo( query ) ) )
 
@@ -76,6 +79,7 @@ $( document )
               questions: memoResults
 
             updateQueryList( query )
+            updateAutoFill( query )
 
           else
 
@@ -87,13 +91,16 @@ $( document )
 
               questionMemo[ query ] = results
               updateQueryList( query )
+              updateAutoFill( query )
             )
-        
-          if( $queries.html() != '' )
-            regExp = new RegExp( "^#{ _escapeRegexp( query ) }", 'i' )
-            if( regExp.test( firstQuestion = _.first( questionMemo[ query ].questions ).content )  )
-              autofillbar.fill( firstQuestion )
       )
+    $searchBar.on( 'focusout', ( e )->
+      $queries.slideUp()
+    )
+    $searchBar.on( 'focus', ( e )->
+      unless( $queries.html() is '' )
+        $queries.slideDown() 
+    )
   )
 
       

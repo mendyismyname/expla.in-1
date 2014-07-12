@@ -6,7 +6,8 @@
     <%= render 'subscriptions/new', question: question %>
     
   </span>
-  <span class="icon"><%= image_tag("question.png") %></span> <%= question.total_answers %>
+  <%= render 'answers/count', question: question %>
+
   </div>
 
   <ul class="answers">

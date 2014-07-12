@@ -8,16 +8,21 @@
     _this = this;
 
     $mainInput = $( inputSelector ).css({
-        zIndex: 1,
-      });
-
-    $backgroundInput = $( '<input>',{
-      'class': 'auto-fill-background',
-      css: {
-        zIndex: -1
-        //fill
-      }
+      zIndex: 1
     });
+
+    $backgroundInput = $mainInput.clone().css({
+      zIndex: -1,
+      color: '#fff',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      background: 'rgba(0,0,0,0.7)'
+      //fill
+    }).addClass('auto-fill-background')
+      .attr('id', '')
+      .attr('name', '');
+
     $backgroundInput.attr('disabled', 'true');
 
     $mainInput.on('keydown', function( e ){
