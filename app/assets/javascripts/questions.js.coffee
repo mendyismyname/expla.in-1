@@ -98,17 +98,17 @@ $( document )
               updateAutoFill( query )
             )
       )
-    $searchBar.on( 'focusout', ( e )->
-      $queries
-        .stop()
-        .slideUp()
+
+    $( document ).on( 'click focusin focusout', 'body, #question-queries, #new_question #question_content', ( e )->
+      e.stopPropagation()
+      $this = $( this )
+      
+      if( $queries.html() isnt '' and e.type is 'focusin' and $this.is( '#new_question #question_content' ))
+        $queries.slideDown()
+      else if ( e.type is 'click' and $this.is( 'body' ) )
+        $queries.slideUp()
     )
-    $searchBar.on( 'focus', ( e )->
-      unless( $queries.html() is '' )
-        $queries
-          .stop()
-          .slideDown() 
-    )
+
   )
 
       
