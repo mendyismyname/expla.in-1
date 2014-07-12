@@ -1,19 +1,26 @@
 #notification-list {
   position: absolute;
-  background: rgba( 25, 25, 25, 0.8 );
-  line-height: 1em;
+  background: #0097B2;
+  line-height: 2em;
   display: none;
-  // padding: 0.5%;
+  top: 105px;
+  width:200px;
+  z-index:10;
+  border-radius:5px;
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 0px 12px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 0px 12px 0px rgba(50, 50, 50, 0.25);
 
   .notification {
-    line-height: 1.5em;
-    border-bottom: #ccc dashed 1px;
-    padding: 0;
+    line-height: 2em;
+    padding: 3%;
     display: block;
-    margin: 0;
+    margin: 3%;
+    border-radius:5px;
+    background-color:white;
     a {
       font-size: 2em;
-      color: black;
+      color: grey;
     }
 
 
@@ -21,30 +28,34 @@
       padding: 0 3%;
       font-size: 0.5em;
       a {
-        color: white;
+        color: #0097B2;
       }
     }
 
     .message {
-      font-size: 0.8em;
-      background: rgba( 255, 255, 255, 0.8 );
+      border-radius:0 0 5px 5px;
+      font-size: 0.5em;
+      background: white;
       margin: 0% 0%;
       display:block;
-      padding: 3%;
+      padding: 0 3%;
     }
     
     .notifiable {
-      padding: 1% 5%;
-      font-size: 0.5em;
+      padding: 0 3%;
+      font-size: 0.3em;
       display: block;
-      text-align: right;
+      text-align: left;
       background: rgba( 255, 255, 255, 1 );
-
+      a {
+        margin: 0;
+        color: #0097B2 ;
+      }
     }
 
   }
 }
 
 .alert {
-  color: red !important;
+  color: #0097B2 !important;
 }
