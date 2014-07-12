@@ -65,7 +65,7 @@ $( document )
           return
 
         aSimilarFailure = _.any( _.keys( questionMemo ), ( pastQuery )->
-          regExp = new RegExp "^#{ _escapeRegexp( pastQuery ) }", 'i'
+          regExp = new RegExp( "^#{ _escapeRegexp( pastQuery ) }", 'i' )
           regExp.test( query ) and questionMemo[ pastQuery ].count < 1
         )
         
