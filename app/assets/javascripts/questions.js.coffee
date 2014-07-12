@@ -40,11 +40,12 @@ $( document )
             .append( question.thumb )
         )
         $queries
-          .slideDown()
+          .stop( true, true )
+          .slideDown( 'fast' )
       else
         $queries
-          .stop()
-          .fadeOut()
+          .stop( true, true )
+          .fadeOut( 'fast' )
 
     updateAutoFill = ( query )->
       if( $queries.html() != '' )
@@ -104,9 +105,13 @@ $( document )
       $this = $( this )
       
       if( $queries.html() isnt '' and e.type is 'focusin' and $this.is( '#new_question #question_content' ))
-        $queries.slideDown()
+        $queries
+          .stop( true, true )
+          .slideDown()
       else if ( e.type is 'click' and $this.is( 'body' ) )
-        $queries.slideUp()
+        $queries
+          .stop( true, true)
+          .slideUp()
     )
 
   )
