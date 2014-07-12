@@ -86,6 +86,12 @@ $( document )
             updateQueryList( query )
             updateAutoFill( query )
 
+          else if( questionMemo[ query[ 0 ] ]  )
+
+            $queries
+              .stop( true, true)
+              .slideUp( 'fast' )
+              
           else
 
             $.getJSON( '/questions', { query: query }, ( response )->
