@@ -19,7 +19,9 @@
       left: 0,
       background: 'rgba(0,0,0,0.7)'
       //fill
-    }).addClass('auto-fill-background');
+    }).addClass('auto-fill-background')
+      .attr('id', '')
+      .attr('name', '');
 
     $backgroundInput.attr('disabled', 'true');
 

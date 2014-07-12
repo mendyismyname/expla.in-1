@@ -1,0 +1,9 @@
+<%= content_tag :li, class: 'thumb clearfix' do %>
+  <%= content_tag :span, class: 'content' do %>
+    <%= link_to question.content, question_subscriptions_path(question) %>
+  <% end %>
+  <%= content_tag :span, class: 'icons' do %>
+    <%= render 'subscriptions/new', question: question %>
+    <%= render 'answers/count', question: question %>
+  <% end %>
+<% end %>

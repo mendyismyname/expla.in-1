@@ -28,14 +28,13 @@ $( document )
       _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
 
     updateQueryList = ( query )->
-      _listItem = _.template( '<li><%= item %></li>' )
       if( questionMemo[ query ].count > 0 )
 
         $queries.html( '' )
 
         _.each( questionMemo[ query ].questions, ( question )->
           $queries
-            .append( _listItem( item: question.content ) )
+            .append( question.thumb )
         )
         $queries
           .slideDown()
@@ -47,7 +46,7 @@ $( document )
       if( $queries.html() != '' )
         regExp = new RegExp( "^#{ _escapeRegexp( query ) }", 'i' )
         if( regExp.test( firstQuestion = _.first( questionMemo[ query ].questions )?.content )  )
-          autofillbar.fill( firstQuestion )
+          autofillbar.fill( query + firstQuestion.slice( query.length, firstQuestion.length ) )
 
     $( '#new_question #question_content' )
       .on( 'keyup', ( e )->

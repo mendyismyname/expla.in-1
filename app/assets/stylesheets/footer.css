@@ -16,7 +16,6 @@ footer div.input-group div.auto-fill-container{
 
 
 footer div.input-group div.auto-fill-container input{
-  /*position: absolute;*/
   font-family: roboto;
   margin: 0;
   border: none;
@@ -25,6 +24,20 @@ footer div.input-group div.auto-fill-container input{
   padding-left: 7%;
 }
 
+
+footer div.input-group div.auto-fill-container input[type="text"]{
+  position: absolute;  
+  height:75px;
+  width:75%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: background-color 0.1s ease;
+  background-color: rgba(0,0,0,0.1);
+  left: 0;
+  top: 0;
+}
 
 footer div.input-group div.auto-fill-container input[type=text]:focus{
   outline: none;
@@ -39,19 +52,6 @@ footer div.input-group div.auto-fill-container input[type=text]:focus{
   box-sizing: border-box;
 
 }
-footer div.input-group div.auto-fill-container input[type="text"]{
-  float: left;
-  height:75px;
-  width:75%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  transition: background-color 0.1s ease;
-  background-color: rgba(0,0,0,0.1);
-  left: 0;
-  bottom: 0;
-}
 
 footer div.input-group div.auto-fill-container input[type="submit"]{
   float: right;
@@ -60,7 +60,6 @@ footer div.input-group div.auto-fill-container input[type="submit"]{
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  right:0;
   background: #00829a;
   background: -moz-linear-gradient(45deg, #00829a 0%, #00a2bd 100%);
   background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #00829a), color-stop(100%, #00a2bd));
@@ -69,7 +68,6 @@ footer div.input-group div.auto-fill-container input[type="submit"]{
   background: -ms-linear-gradient(45deg, #00829a 0%, #00a2bd 100%);
   background: linear-gradient(45deg, #00829a 0%, #00a2bd 100%);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00829a', endColorstr='#00a2bd', GradientType=1);
-  top:0;
   margin:0;
   padding:0;
   height:75px;
@@ -85,40 +83,34 @@ footer input[type=submit]:hover{
   background-color:#68C2B5;
 }
 
-.auto-fill-background{
-  /*position: fixed;*/
-  /*bottom:0;
-  height:75px;
-  background-color: #efefef;
-  color: white;
-  width:75%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  border:none;
-  font-size: 2em;
-  display: block;
-  z-index: -1;
-  left:0;
-  padding-left: 7%;
-  opacity: .9;*/
-}
 
 ul#question-queries{
   font-family: roboto;
-  font-size: 2em;
+  font-size: 1.5em;
   position:fixed;
   margin:0;
   background-color: red;
   bottom:76px;
-  right:0;
   left:0;
+  right: 0;
   color: white; 
   max-height: 250px;
   background-color: #333;
-  padding: 3% 7%;
+  padding: 0 20%;
   display: none;
   min-height: 0;
   list-style-type: none;
+}
+
+ul#question-queries .thumb{
+  width: 100%;
+  padding: 1%;
+}
+
+ul#question-queries .thumb .content {
+  float: left;
+} 
+
+ul#question-queries .thumb .icons {
+  float: right;
 }
