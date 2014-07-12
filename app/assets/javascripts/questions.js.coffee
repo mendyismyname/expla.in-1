@@ -60,7 +60,7 @@ $( document )
         query = $( this ).val( )
 
         unless query
-          $queries.slideUp(()->
+          $queries.slideUp( 'fast' ,()->
             $queries.html( '' )
           )
           return
@@ -107,11 +107,11 @@ $( document )
       if( $queries.html() isnt '' and e.type is 'focusin' and $this.is( '#new_question #question_content' ))
         $queries
           .stop( true, true )
-          .slideDown()
+          .slideDown( 'fast' )
       else if ( e.type is 'click' and $this.is( 'body' ) )
         $queries
           .stop( true, true)
-          .slideUp()
+          .slideUp( 'fast' )
     )
 
   )
