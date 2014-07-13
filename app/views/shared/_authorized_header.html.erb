@@ -12,7 +12,6 @@
   <%= content_tag :li do %>
     <%= render_notification_list(current_user.notifications.recent, html: { id: 'notification-list' }) %>
   <% end %>
-  <div id='notify'></div>
   <%= content_tag :i, link_to('', '#', class: 'icon-bell-alt', id: 'notifications-button') %>
   <%= content_tag :i, link_to('', current_user, class:"icon-user") %>
   <%= content_tag :i, link_to('', signout_path, class: 'icon-logout', method: 'delete') %>
