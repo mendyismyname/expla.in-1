@@ -1,35 +1,29 @@
-.user-info{
-  background-color: #e6e6e6;
-  padding:30px;
-  border-radius: 10px 10px 0 0;
+.user-page #header h1{
+  color:white;
   text-align: center;
-  color: white;
-  background: url(http://hqscreen.com/wallpapers/m/56/blurred_m55528.jpg )
-  no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  font-size: 2em;
+  margin: 20px auto;
 }
 
-#user-questions h4{
-  font-size: 0px;
-}
-
-#user-questions{
-  background-color: #f9f9f9;
-  padding:30px;
-}
-
-#user-questions h2{
+.user-page #header p{
+  color:white;
   text-align: center;
+  font-size: 1em;
+  margin: 20px auto;
 }
+
+.user-page h3{
+  color:#00A1BC;
+  text-align: center;
+  font-size: 2em;
+  margin: 20px auto 0 0;
+}
+
 .img{
   height: 100px;
   width: 100px;
-  margin:0 auto;
+  margin:30px auto;
   color: white;
-  background-color: #efefef;
   border-radius: 50%;
   border: 3px solid #efefef;
   text-align: center;
@@ -38,129 +32,129 @@
 }
 
 #letter {
-  text-shadow: rgb(19,117,130) 1px 1px,
-    rgb(19,117,130) 2px 2px,
-    rgb(19,117,130) 3px 3px,
-    rgb(19,117,130) 4px 4px,
-    rgb(19,117,130) 5px 5px,
-    rgb(19,117,130) 6px 6px,
-    rgb(19,117,130) 7px 7px,
-    rgb(19,117,130) 8px 8px,
-    rgb(19,117,130) 9px 9px,
-    rgb(19,117,130) 10px 10px,
-    rgb(19,117,130) 11px 11px,
-    rgb(19,117,130) 12px 12px,
-    rgb(19,117,130) 13px 13px,
-    rgb(19,117,130) 14px 14px,
-    rgb(19,117,130) 15px 15px,
-    rgb(19,117,130) 16px 16px,
-    rgb(19,117,130) 17px 17px,
-    rgb(19,117,130) 18px 18px,
-    rgb(19,117,130) 19px 19px,
-    rgb(19,117,130) 20px 20px,
-    rgb(19,117,130) 21px 21px,
-    rgb(19,117,130) 22px 22px,
-    rgb(19,117,130) 23px 23px,
-    rgb(19,117,130) 24px 24px,
-    rgb(19,117,130) 25px 25px,
-    rgb(19,117,130) 26px 26px,
-    rgb(19,117,130) 27px 27px,
-    rgb(19,117,130) 28px 28px,
-    rgb(19,117,130) 29px 29px,
-    rgb(19,117,130) 30px 30px,
-    rgb(19,117,130) 31px 31px,
-    rgb(19,117,130) 32px 32px,
-    rgb(19,117,130) 33px 33px,
-    rgb(19,117,130) 34px 34px,
-    rgb(19,117,130) 35px 35px,
-    rgb(19,117,130) 36px 36px,
-    rgb(19,117,130) 37px 37px,
-    rgb(19,117,130) 38px 38px,
-    rgb(19,117,130) 39px 39px,
-    rgb(19,117,130) 40px 40px,
-    rgb(19,117,130) 41px 41px,
-    rgb(19,117,130) 42px 42px,
-    rgb(19,117,130) 43px 43px,
-    rgb(19,117,130) 44px 44px,
-    rgb(19,117,130) 45px 45px,
-    rgb(19,117,130) 46px 46px,
-    rgb(19,117,130) 47px 47px,
-    rgb(19,117,130) 48px 48px,
-    rgb(19,117,130) 49px 49px,
-    rgb(19,117,130) 50px 50px,
-    rgb(19,117,130) 51px 51px,
-    rgb(19,117,130) 52px 52px,
-    rgb(19,117,130) 53px 53px,
-    rgb(19,117,130) 54px 54px,
-    rgb(19,117,130) 55px 55px,
-    rgb(19,117,130) 56px 56px,
-    rgb(19,117,130) 57px 57px,
-    rgb(19,117,130) 58px 58px,
-    rgb(19,117,130) 59px 59px,
-    rgb(19,117,130) 60px 60px,
-    rgb(19,117,130) 61px 61px,
-    rgb(19,117,130) 62px 62px,
-    rgb(19,117,130) 63px 63px,
-    rgb(19,117,130) 64px 64px,
-    rgb(19,117,130) 65px 65px,
-    rgb(19,117,130) 66px 66px,
-    rgb(19,117,130) 67px 67px,
-    rgb(19,117,130) 68px 68px,
-    rgb(19,117,130) 69px 69px,
-    rgb(19,117,130) 70px 70px,
-    rgb(19,117,130) 71px 71px,
-    rgb(19,117,130) 72px 72px,
-    rgb(19,117,130) 73px 73px,
-    rgb(19,117,130) 74px 74px,
-    rgb(19,117,130) 75px 75px,
-    rgb(19,117,130) 76px 76px,
-    rgb(19,117,130) 77px 77px,
-    rgb(19,117,130) 78px 78px,
-    rgb(19,117,130) 79px 79px,
-    rgb(19,117,130) 80px 80px,
-    rgb(19,117,130) 81px 81px,
-    rgb(19,117,130) 82px 82px,
-    rgb(19,117,130) 83px 83px,
-    rgb(19,117,130) 84px 84px,
-    rgb(19,117,130) 85px 85px,
-    rgb(19,117,130) 86px 86px,
-    rgb(19,117,130) 87px 87px,
-    rgb(19,117,130) 88px 88px,
-    rgb(19,117,130) 89px 89px,
-    rgb(19,117,130) 90px 90px,
-    rgb(19,117,130) 91px 91px,
-    rgb(19,117,130) 92px 92px,
-    rgb(19,117,130) 93px 93px,
-    rgb(19,117,130) 94px 94px,
-    rgb(19,117,130) 95px 95px,
-    rgb(19,117,130) 96px 96px,
-    rgb(19,117,130) 97px 97px,
-    rgb(19,117,130) 98px 98px,
-    rgb(19,117,130) 99px 99px,
-    rgb(19,117,130) 100px 100px,
-    rgb(19,117,130) 101px 101px,
-    rgb(19,117,130) 102px 102px,
-    rgb(19,117,130) 103px 103px,
-    rgb(19,117,130) 104px 104px,
-    rgb(19,117,130) 105px 105px,
-    rgb(19,117,130) 106px 106px,
-    rgb(19,117,130) 107px 107px,
-    rgb(19,117,130) 108px 108px,
-    rgb(19,117,130) 109px 109px,
-    rgb(19,117,130) 110px 110px,
-    rgb(19,117,130) 111px 111px,
-    rgb(19,117,130) 112px 112px,
-    rgb(19,117,130) 113px 113px,
-    rgb(19,117,130) 114px 114px,
-    rgb(19,117,130) 115px 115px,
-    rgb(19,117,130) 116px 116px,
-    rgb(19,117,130) 117px 117px,
-    rgb(19,117,130) 118px 118px,
-    rgb(19,117,130) 119px 119px,
-    rgb(19,117,130) 120px 120px,
-    rgb(19,117,130) 121px 121px;
+  text-shadow: rgb(0, 136, 161) 1px 1px,
+    rgb(0, 136, 161) 2px 2px,
+    rgb(0, 136, 161) 3px 3px,
+    rgb(0, 136, 161) 4px 4px,
+    rgb(0, 136, 161) 5px 5px,
+    rgb(0, 136, 161) 6px 6px,
+    rgb(0, 136, 161) 7px 7px,
+    rgb(0, 136, 161) 8px 8px,
+    rgb(0, 136, 161) 9px 9px,
+    rgb(0, 136, 161) 10px 10px,
+    rgb(0, 136, 161) 11px 11px,
+    rgb(0, 136, 161) 12px 12px,
+    rgb(0, 136, 161) 13px 13px,
+    rgb(0, 136, 161) 14px 14px,
+    rgb(0, 136, 161) 15px 15px,
+    rgb(0, 136, 161) 16px 16px,
+    rgb(0, 136, 161) 17px 17px,
+    rgb(0, 136, 161) 18px 18px,
+    rgb(0, 136, 161) 19px 19px,
+    rgb(0, 136, 161) 20px 20px,
+    rgb(0, 136, 161) 21px 21px,
+    rgb(0, 136, 161) 22px 22px,
+    rgb(0, 136, 161) 23px 23px,
+    rgb(0, 136, 161) 24px 24px,
+    rgb(0, 136, 161) 25px 25px,
+    rgb(0, 136, 161) 26px 26px,
+    rgb(0, 136, 161) 27px 27px,
+    rgb(0, 136, 161) 28px 28px,
+    rgb(0, 136, 161) 29px 29px,
+    rgb(0, 136, 161) 30px 30px,
+    rgb(0, 136, 161) 31px 31px,
+    rgb(0, 136, 161) 32px 32px,
+    rgb(0, 136, 161) 33px 33px,
+    rgb(0, 136, 161) 34px 34px,
+    rgb(0, 136, 161) 35px 35px,
+    rgb(0, 136, 161) 36px 36px,
+    rgb(0, 136, 161) 37px 37px,
+    rgb(0, 136, 161) 38px 38px,
+    rgb(0, 136, 161) 39px 39px,
+    rgb(0, 136, 161) 40px 40px,
+    rgb(0, 136, 161) 41px 41px,
+    rgb(0, 136, 161) 42px 42px,
+    rgb(0, 136, 161) 43px 43px,
+    rgb(0, 136, 161) 44px 44px,
+    rgb(0, 136, 161) 45px 45px,
+    rgb(0, 136, 161) 46px 46px,
+    rgb(0, 136, 161) 47px 47px,
+    rgb(0, 136, 161) 48px 48px,
+    rgb(0, 136, 161) 49px 49px,
+    rgb(0, 136, 161) 50px 50px,
+    rgb(0, 136, 161) 51px 51px,
+    rgb(0, 136, 161) 52px 52px,
+    rgb(0, 136, 161) 53px 53px,
+    rgb(0, 136, 161) 54px 54px,
+    rgb(0, 136, 161) 55px 55px,
+    rgb(0, 136, 161) 56px 56px,
+    rgb(0, 136, 161) 57px 57px,
+    rgb(0, 136, 161) 58px 58px,
+    rgb(0, 136, 161) 59px 59px,
+    rgb(0, 136, 161) 60px 60px,
+    rgb(0, 136, 161) 61px 61px,
+    rgb(0, 136, 161) 62px 62px,
+    rgb(0, 136, 161) 63px 63px,
+    rgb(0, 136, 161) 64px 64px,
+    rgb(0, 136, 161) 65px 65px,
+    rgb(0, 136, 161) 66px 66px,
+    rgb(0, 136, 161) 67px 67px,
+    rgb(0, 136, 161) 68px 68px,
+    rgb(0, 136, 161) 69px 69px,
+    rgb(0, 136, 161) 70px 70px,
+    rgb(0, 136, 161) 71px 71px,
+    rgb(0, 136, 161) 72px 72px,
+    rgb(0, 136, 161) 73px 73px,
+    rgb(0, 136, 161) 74px 74px,
+    rgb(0, 136, 161) 75px 75px,
+    rgb(0, 136, 161) 76px 76px,
+    rgb(0, 136, 161) 77px 77px,
+    rgb(0, 136, 161) 78px 78px,
+    rgb(0, 136, 161) 79px 79px,
+    rgb(0, 136, 161) 80px 80px,
+    rgb(0, 136, 161) 81px 81px,
+    rgb(0, 136, 161) 82px 82px,
+    rgb(0, 136, 161) 83px 83px,
+    rgb(0, 136, 161) 84px 84px,
+    rgb(0, 136, 161) 85px 85px,
+    rgb(0, 136, 161) 86px 86px,
+    rgb(0, 136, 161) 87px 87px,
+    rgb(0, 136, 161) 88px 88px,
+    rgb(0, 136, 161) 89px 89px,
+    rgb(0, 136, 161) 90px 90px,
+    rgb(0, 136, 161) 91px 91px,
+    rgb(0, 136, 161) 92px 92px,
+    rgb(0, 136, 161) 93px 93px,
+    rgb(0, 136, 161) 94px 94px,
+    rgb(0, 136, 161) 95px 95px,
+    rgb(0, 136, 161) 96px 96px,
+    rgb(0, 136, 161) 97px 97px,
+    rgb(0, 136, 161) 98px 98px,
+    rgb(0, 136, 161) 99px 99px,
+    rgb(0, 136, 161) 100px 100px,
+    rgb(0, 136, 161) 101px 101px,
+    rgb(0, 136, 161) 102px 102px,
+    rgb(0, 136, 161) 103px 103px,
+    rgb(0, 136, 161) 104px 104px,
+    rgb(0, 136, 161) 105px 105px,
+    rgb(0, 136, 161) 106px 106px,
+    rgb(0, 136, 161) 107px 107px,
+    rgb(0, 136, 161) 108px 108px,
+    rgb(0, 136, 161) 109px 109px,
+    rgb(0, 136, 161) 110px 110px,
+    rgb(0, 136, 161) 111px 111px,
+    rgb(0, 136, 161) 112px 112px,
+    rgb(0, 136, 161) 113px 113px,
+    rgb(0, 136, 161) 114px 114px,
+    rgb(0, 136, 161) 115px 115px,
+    rgb(0, 136, 161) 116px 116px,
+    rgb(0, 136, 161) 117px 117px,
+    rgb(0, 136, 161) 118px 118px,
+    rgb(0, 136, 161) 119px 119px,
+    rgb(0, 136, 161) 120px 120px,
+    rgb(0, 136, 161) 121px 121px;
 
-  background-color: rgb(29, 127, 145);
+  background-color: #00A1BC;
   height: 100%;
   width: 100%;
   font-size: 50px;

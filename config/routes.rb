@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   get 'partials/notification/:notification_id' => 'partials#notification'
 
+  get '/new' => 'questions#new', as: 'new_questions'
+  get '/answered' => 'questions#answered', as: 'answered_questions'
+
   resources :users, except: :new do
     resources :subscriptions, :only => [:index]
   end

@@ -39,7 +39,7 @@ $( document )
       if( questionMemo[ query ].count > 0 )
 
         $queries.html( '' )
-
+        
         _.each( questionMemo[ query ].questions, ( question )->
           unless( question.thumb instanceof $ )
             question.thumb = $( question.thumb )
