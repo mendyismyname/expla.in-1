@@ -4,5 +4,5 @@
 <% else %>
   <%= link_to(image_tag("star.png"), question_subscriptions_path(question), :method => :post, :remote => true) %>
 <% end %>
-<%= question.subscriptions.count - 1 %>
+<span class='subscription-counter-<%= question.id %>'><%= question.subscriptions.count - 1 %></span>
 </span>
