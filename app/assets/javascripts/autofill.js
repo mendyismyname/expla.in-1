@@ -27,7 +27,7 @@
 
     $mainInput.on('keydown', function( e ){
 
-      if( e.keyCode === 9 && !e.shiftKey ){
+      if( e.keyCode === 9 && !e.shiftKey && $backgroundInput.val() !== '' ){
         //tab
         e.preventDefault();
         _this.complete();

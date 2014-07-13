@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
 
   def new
+    if user_signed_in?
+      redirect_to user_path(current_user)
+    end
   end
 
   def create

@@ -35,7 +35,7 @@ $( document )
       regExp = new RegExp( ".*#{ _escapeRegexp( query ) }.*", 'i' )
       _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
 
-    updateQueryList = ( query )->
+    updateQuestionList = ( query )->
       if( questionMemo[ query ].count > 0 )
 
         $queries.html( '' )
@@ -83,7 +83,7 @@ $( document )
 
           if( questionMemo[ query ] )
 
-            updateQueryList( query )
+            updateQuestionList( query )
             updateAutoFill( query )
 
           else if( _.any( memoResults = _searchMemo( query ) ) )
@@ -92,7 +92,7 @@ $( document )
               count: memoResults.length
               questions: memoResults
 
-            updateQueryList( query )
+            updateQuestionList( query )
             updateAutoFill( query )
 
           else if( questionMemo[ query[ 0 ] ]  )
@@ -108,11 +108,11 @@ $( document )
             $.getJSON( '/questions', { query: query }, ( response )->
 
               results = 
-                count: response.length
-                questions: response
+                count: response.questions.length
+                questions: response.questions
 
               questionMemo[ query ] = results
-              updateQueryList( query )
+              updateQuestionList( query )
               updateAutoFill( query )
             )
       )
