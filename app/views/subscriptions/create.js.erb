@@ -1,7 +1,13 @@
 (function(){
   var questionSelector = "*[data-resource='question'][data-id='<%= @subscription.question.id %>']",
-      $question = $( questionSelector );
+      thumbSelector    = ".thumb[data-resource='question-thumb'][data-id='<%= @subscription.question.id %>']",
+      $question        = $( questionSelector ),
+      $thumb           = $( thumbSelector ),
+      newThumb         = $( '<%= j(render "questions/thumb", question: @subscription.question) %>' );
 
-  $question.find('.subscriptions').html('<%= j(render "subscriptions/new", question: @subscription.question) %>')
+
+
+  $question.find('.subscriptions').html('<%= j(render "subscriptions/new", question: @subscription.question) %>');
+  $thumb.replaceWith( newThumb );
 
 }).call(this);

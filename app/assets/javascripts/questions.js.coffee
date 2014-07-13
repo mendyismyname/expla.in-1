@@ -12,7 +12,7 @@ _escapeRegexp = ( str )->
 
 _highlightWord = ( pattern, question )->
   
-  regExp = new RegExp( "#{pattern}", 'i' )
+  regExp = new RegExp( "#{_escapeRegexp( pattern )}", 'i' )
   $content = question.thumb.find('.content a')
 
   $content.html( question.content.replace( regExp, '<span class="highlight-word">$&</span>' ) )
