@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
-    if notification_id = params[:notification_id]
+    if notification_id = params[ :notification_id ]
       @notification = Notification.find( notification_id )
       @notification.viewed = true
       @notification.save
@@ -26,7 +26,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    if @question.save
+    similar_question = Question.where("lower(content) = ?", @question.content.downcase ).first
+    if similar_question
+      current_user.subscribe_to( similar_question )
+      redirect_to question_path( similar_question )
+    elsif @question.save
       redirect_to question_path(@question)
     else
       redirect_to user_path(@question.user), notice: "Something went wrong..."

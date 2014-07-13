@@ -1,13 +1,13 @@
 (function(){
-  var questionSelector = "*[data-resource='question'][data-id='<%= @subscription.question.id %>']",
-      thumbSelector    = ".thumb[data-resource='question-thumb'][data-id='<%= @subscription.question.id %>']",
-      $question        = $( questionSelector ),
-      $thumb           = $( thumbSelector ),
-      newThumb         = $( '<%= j(render "questions/thumb", question: @subscription.question) %>' );
+  var questionSelector     = "*[data-resource='question'][data-id='<%= @subscription.question.id %>']",
+      thumbSelector        = ".thumb[data-resource='question-thumb'][data-id='<%= @subscription.question.id %>']",
+      $question            = $( questionSelector ),
+      $thumb               = $( thumbSelector ),
+      newSubscriptionCount = $( '<%= j(render "subscriptions/new", question: @subscription.question) %>' ),
+      tClone;
 
-
-
-  $question.find('.subscriptions').html('<%= j(render "subscriptions/new", question: @subscription.question) %>');
-  $thumb.replaceWith( newThumb );
+  tClone = newSubscriptionCount.clone()
+  $question.find('.subscription-count').replaceWith( newSubscriptionCount );
+  $thumb.find('.subscription-count').replaceWith( tClone );
 
 }).call(this);

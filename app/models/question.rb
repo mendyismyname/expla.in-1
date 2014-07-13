@@ -23,7 +23,7 @@ class Question < ActiveRecord::Base
     order(:total_answers => :desc).limit(limit)
   }
 
-  validates :content, presence: true, uniqueness: true
+  validates :content, presence: true, uniqueness: { case_sensitive: false }
   validates :user_id, presence: true
 
   def answered?
