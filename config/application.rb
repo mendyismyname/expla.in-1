@@ -11,7 +11,9 @@ module ExplaIn
     
     config.middleware.delete Rack::Lock
     config.middleware.use(FayeRails::Middleware, mount: '/explained') do
-
+    
+    config.assets.paths << Rails.root.join('lib', 'assets', 'fonts')
+    config.assets.precompile += %w(.svg .eot .woff .ttf)
     
       map '/notifications/**' => NotificationsController
       
