@@ -1,7 +1,14 @@
-.user-page h1{
+.user-page #header h1{
   color:white;
   text-align: center;
   font-size: 2em;
+  margin: 20px auto;
+}
+
+.user-page #header p{
+  color:white;
+  text-align: center;
+  font-size: 1em;
   margin: 20px auto;
 }
 
