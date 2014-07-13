@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module ExplaIn
   class Application < Rails::Application
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     
     config.middleware.delete Rack::Lock
     config.middleware.use(FayeRails::Middleware, mount: '/explained') do
