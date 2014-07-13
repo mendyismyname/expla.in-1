@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
 
   def new
+    if current_user   
+      redirect_to questions_path 
+    end 
   end
 
   def create
