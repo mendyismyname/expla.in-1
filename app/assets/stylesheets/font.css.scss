@@ -1,7 +1,0 @@
-@font-face {
-  font-family: 'fontello';
-  src: url('<%= asset_path("fontello.eot") %>');
-  src: url('<%= asset_path("fontello.eot#iefix") %>') format('embedded-opentype'),
-       url('<%= asset_path("fontello.woff") %>') format('woff'),
-       url('<%= asset_path("fontello.ttf") %>') format('truetype');
-}
