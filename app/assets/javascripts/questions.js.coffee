@@ -27,9 +27,14 @@ $( document )
     questionMemo = { }
 
     _searchQuestionHashes = ( hashes, pattern )->
-      _.uniq ( _.select( hashes, ( hash )->
+
+      questionsThatMatchPattern = _.select( hashes, ( hash )->
         pattern.test( hash.content )
-      ))
+      )
+
+      _.uniq( questionsThatMatchPattern, ( hash )->
+        hash.id
+      )
 
     _searchMemo = ( query )->
       regExp = new RegExp( ".*#{ _escapeRegexp( query ) }.*", 'i' )
@@ -74,19 +79,14 @@ $( document )
           )
           return
 
-        aSimilarFailure = _.any( _.keys( questionMemo ), ( pastQuery )->
-          regExp = new RegExp( "^#{ _escapeRegexp( pastQuery ) }", 'i' )
-          regExp.test( query ) and questionMemo[ pastQuery ].count < 1
-        )
-        
-        if( not aSimilarFailure )
+        if( questionMemo[ query ] )
 
-          if( questionMemo[ query ] )
+          updateQuestionList( query )
+          updateAutoFill( query )
 
-            updateQuestionList( query )
-            updateAutoFill( query )
+        else if( questionMemo[ query[ 0 ] ]  )
 
-          else if( _.any( memoResults = _searchMemo( query ) ) )
+          if( _.any( memoResults = _searchMemo( query ) ) )
 
             questionMemo[ query ] = 
               count: memoResults.length
@@ -94,27 +94,25 @@ $( document )
 
             updateQuestionList( query )
             updateAutoFill( query )
-
-          else if( questionMemo[ query[ 0 ] ]  )
-
+          else 
             $queries
               .stop( true, true)
               .slideUp( 'fast', ()->
                 $queries.html( '' )
               )
 
-          else
+        else
 
-            $.getJSON( '/questions', { query: query }, ( response )->
+          $.getJSON( '/questions', { query: query }, ( response )->
 
-              results = 
-                count: response.questions.length
-                questions: response.questions
+            results = 
+              count: response.questions.length
+              questions: response.questions
 
-              questionMemo[ query ] = results
-              updateQuestionList( query )
-              updateAutoFill( query )
-            )
+            questionMemo[ query ] = results
+            updateQuestionList( query )
+            updateAutoFill( query )
+          )
       )
 
     $( document ).on( 'click focusin focusout', 'body, #question-queries, #new_question #question_content', ( e )->

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :questions, :only => [:create, :show, :index] do
     resources :answers, :only => [:create]
-    resources :subscriptions, :only => [:create]
+    resources :subscriptions, :only => [:create, :destroy]
   end
 
   get 'client' => 'subscriptions#client', as: 'client_js'

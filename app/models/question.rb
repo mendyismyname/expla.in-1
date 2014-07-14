@@ -4,8 +4,9 @@ class Question < ActiveRecord::Base
 
   belongs_to :user
   
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_many :notifications, as: :notifiable
 
   scope :unanswered, ->{
     where('total_answers = 0')

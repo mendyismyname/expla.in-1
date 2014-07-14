@@ -1,7 +1,8 @@
 <% @question.reload %>
 
-answersSelector = 'ul[data-owner="question_<%= @question.id %>"]'
+answersSelector = '*[data-owner="question_<%= @question.id %>"]'
 questionSelector = '*[data-resource="question"][data-id="<%= @question.id %>"]'
+
 
 $( answersSelector )
   .append( '<%= j(render_answer(@answer, q:false) ) %>' )

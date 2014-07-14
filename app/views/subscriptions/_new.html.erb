@@ -1,6 +1,6 @@
 <span class='subscription-count'>
 <% if current_user.subscribed? question %>
-  <%= image_tag("stared.png")%>
+  <%= link_to(image_tag("stared.png"), question_subscription_path(question, current_user.subscriptions.find_by_question_id( question.id )), :method => :delete, :remote => true) %>
 <% else %>
   <%= link_to(image_tag("star.png"), question_subscriptions_path(question), :method => :post, :remote => true) %>
 <% end %>

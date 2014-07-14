@@ -4,10 +4,21 @@
       $question            = $( questionSelector ),
       $thumb               = $( thumbSelector ),
       newSubscriptionCount = $( '<%= j(render "subscriptions/new", question: @subscription.question) %>' ),
-      tClone;
+      tClone,
+      qClone;
 
-  tClone = newSubscriptionCount.clone()
-  $question.find('.subscription-count').replaceWith( newSubscriptionCount );
-  $thumb.find('.subscription-count').replaceWith( tClone );
+  tClone = newSubscriptionCount.clone().hide();
+  qClone = newSubscriptionCount.clone().hide();
+  $question.find('.subscription-count').fadeOut( 'fast', function(){
+    $( this ).replaceWith( qClone );
+    qClone.fadeIn( 'fast' );
+  });
+
+  // ( 'fast', function(){
+  // });
+  $thumb.find('.subscription-count').fadeOut( 'fast', function(){
+    $( this ).replaceWith( tClone );
+    tClone.fadeIn( 'fast' );
+  });
 
 }).call(this);

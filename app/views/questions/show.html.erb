@@ -4,14 +4,14 @@
     <%= render_question(@question) %>
   </div>
   <div id="body">
-    <div id="answer">
+    <%= content_tag :div, id: 'answer', data: { owner: "question_#{@question.id}" } do %>
       <% @question.answers.each do |answer| %>
-      <%= render_answer(answer, q: false) %>
-    <div class="line"></div>
-  <% end %>
+        <%= render_answer(answer, q: false) %>
+        <div class="line"></div>
+      <% end %>
+    <% end %>
     <%= render 'answers/form', question: @question %>
   </div>
 </div>
 
 
-<!-- content_tag :div, data: { owner: "question_#{@question.id}" } -->
