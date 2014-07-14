@@ -6,13 +6,7 @@ class QuestionsController < ApplicationController
   def index
     respond_to do |format|
       format.html { @questions = Question.popular }
-      format.json do 
-        @questions = Question.where('content LIKE ?', "%#{params[:query]}%").popular
-        query_feed = @questions.map do |question|
-          question.attributes.merge(thumb: render_to_string(formats: ['html'], partial: 'questions/thumb', layout: false, locals: { question: question}))
-        end
-        render json: query_feed
-      end
+      format.json { @questions = Question.where('content LIKE ?', "%#{params[:query]}%").popular }
     end
   end
 

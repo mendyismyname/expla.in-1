@@ -1,7 +1,7 @@
 <%= form_for(question, html) do |f| %>
   <%= content_tag :div, class: 'input-group' do %>
     <%= content_tag :div, class: 'auto-fill-container' do %>
-      <%= f.text_field :content, autocomplete: :off %>
+      <%= f.text_field :content, autocomplete: :off, placeholder: "What's the problem?" %>
       <%= f.submit 'Ask' %>
     <% end %>
   <% end %>

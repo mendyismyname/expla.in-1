@@ -7,10 +7,6 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :subscriptions, dependent: :destroy
 
-  scope :answered, ->{ 
-    where('total_answers > 0')
-  }
-
   scope :unanswered, ->{
     where('total_answers = 0')
   }
@@ -33,6 +29,7 @@ class Question < ActiveRecord::Base
   def to_s
     content
   end
+
 
   private
     def questionize
