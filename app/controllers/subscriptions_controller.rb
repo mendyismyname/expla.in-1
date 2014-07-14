@@ -19,7 +19,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     @subscription.destroy
     respond_to do |format|
-      format.js
+      format.js { render :create }
       format.html { redirect_to question_path(@subscription.question) }
     end
   end

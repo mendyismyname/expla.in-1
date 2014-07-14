@@ -1,6 +1,6 @@
 <%= content_tag :li, class: 'thumb clearfix', data: { resource: 'question-thumb', id: question.id } do %>
   <%= content_tag :span, class: 'content' do %>
-    <%= link_to question.content, question_subscriptions_path(question), :remote => true, :method => :post %>
+    <%= link_to question.content, question_path(question) %>
   <% end %>
   <%= content_tag :span, class: 'icons' do %>
     <%= render 'subscriptions/new', question: question %>
