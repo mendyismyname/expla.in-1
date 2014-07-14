@@ -6,8 +6,10 @@
 #
 default: &default
   adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  timeout: 5000
 
 development:
   adapter: postgresql
@@ -21,6 +23,12 @@ test:
   <<: *default
   database: db/test.postgresql
 
+# production:
+#   <<: *default
+#   database: postgresty_production
+#   username: postgresty
+#   password: <%= ENV['POSTGRESTY_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: db/production.postgresql
+  database: explainit_production  
