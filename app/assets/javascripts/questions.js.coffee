@@ -84,7 +84,7 @@ $( document )
           updateQuestionList( query )
           updateAutoFill( query )
 
-        else if( questionMemo[ query[ 0 ] ]  )
+        else if( questionMemo[ query[ 0 ].toLowerCase() ]  )
 
           if( _.any( memoResults = _searchMemo( query ) ) )
 

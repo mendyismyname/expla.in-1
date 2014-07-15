@@ -64,3 +64,7 @@
   font-family: 'Roboto', sans-serif;
   padding: 25px 0 0 0;
 }
+
+.questions > li .reviews span[class^='subscription-counter'] {
+  margin: 0;
+}

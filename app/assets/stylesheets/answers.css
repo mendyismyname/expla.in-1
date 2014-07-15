@@ -181,7 +181,9 @@ a:visited{
 }
 .single #body #answer {
   padding: 100px;
+  white-space: pre-wrap;
 }
+
 .single #body #answer h2 {
   color: #00a2bd;
   font-size: 33px;

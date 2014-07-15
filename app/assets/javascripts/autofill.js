@@ -21,7 +21,8 @@
       //fill
     }).addClass('auto-fill-background')
       .attr('id', '')
-      .attr('name', '');
+      .attr('name', '')
+      .attr('placeholder','');
 
     $backgroundInput.attr('disabled', 'true');
 
