@@ -20,6 +20,10 @@ class Question < ActiveRecord::Base
     order(:total_answers => :desc).limit(limit)
   }
 
+scope :recent, lambda{ |limit = 15|
+    order(:created_at => :desc).limit(limit)
+  }
+
   validates :content, presence: true, uniqueness: { case_sensitive: false }
   validates :user_id, presence: true
 
