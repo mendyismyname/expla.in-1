@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
     
   def new
     respond_to do |format|
-      format.html { @questions = Question.all }
+      format.html { @questions = Question.recent }
     end
   end
 

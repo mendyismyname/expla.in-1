@@ -12,7 +12,7 @@ _escapeRegexp = ( str )->
 
 _highlightWord = ( pattern, question )->
   
-  regExp = new RegExp( "#{_escapeRegexp( pattern )}", 'i' )
+  regExp = new RegExp( _escapeRegexp( pattern ), 'i' )
   $content = question.thumb.find('.content a')
 
   $content.html( question.content.replace( regExp, '<span class="highlight-word">$&</span>' ) )
@@ -36,16 +36,16 @@ $( document )
         hash.id
       )
 
-    _searchMemo = ( query )->
+    _searchMemo = ( query ) ->
       regExp = new RegExp( ".*#{ _escapeRegexp( query ) }.*", 'i' )
       _searchQuestionHashes( _.flatten( _.pluck( _.values( questionMemo ), 'questions' ) ), regExp )
 
-    updateQuestionList = ( query )->
+    updateQuestionList = ( query ) ->
       if( questionMemo[ query ].count > 0 )
 
         $queries.html( '' )
         
-        _.each( questionMemo[ query ].questions, ( question )->
+        _.each( questionMemo[ query ].questions, ( question ) ->
           unless( question.thumb instanceof $ )
             question.thumb = $( question.thumb )
 
@@ -61,20 +61,20 @@ $( document )
           .stop( true, true )
           .fadeOut( 'fast' )
 
-    updateAutoFill = ( query )->
+    updateAutoFill = ( query ) ->
       if( $queries.html() != '' )
         regExp = new RegExp( "^#{ _escapeRegexp( query ) }", 'i' )
         if( regExp.test( firstQuestion = _.first( questionMemo[ query ].questions )?.content )  )
           autofillbar.fill( query + firstQuestion.slice( query.length, firstQuestion.length ) )
 
     $( '#new_question #question_content' )
-      .on( 'keyup', ( e )->
+      .on( 'keyup', ( e ) ->
         autofillbar.fill('')
 
         query = $( this ).val( )
 
         unless query
-          $queries.slideUp( 'fast' ,()->
+          $queries.slideUp( 'fast' ,() ->
             $queries.html( '' )
           )
           return
@@ -84,7 +84,7 @@ $( document )
           updateQuestionList( query )
           updateAutoFill( query )
 
-        else if( questionMemo[ query[ 0 ] ]  )
+        else if( questionMemo[ query[ 0 ].toLowerCase() ]  )
 
           if( _.any( memoResults = _searchMemo( query ) ) )
 
